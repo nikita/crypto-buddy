@@ -193,6 +193,14 @@ client.on("message", async message => {
       );
     }
   }
+
+  if (command === "alerts") {
+    if (alerts) {
+      await message.channel.send(`Current Alerts: ${alerts}`);
+    } else {
+      await message.channel.send("No current alerts set.");
+    }
+  }
 });
 
 client.login(DISCORD_BOT_TOKEN);
