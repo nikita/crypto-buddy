@@ -48,7 +48,6 @@ const addAlert = coin => {
   const { symbol, price, type } = coin;
   if (symbols.indexOf(symbol) > -1) {
     alerts.push(coin);
-    console.log(alerts);
     return true;
   } else {
     return false;
@@ -92,9 +91,6 @@ const alertUser = (coin, alert) => {
 
 const checkAlerts = async () => {
   const coins = await getCoins();
-
-  console.log("CHECKING!");
-  console.log(alerts);
 
   for (_coin in coins) {
     let coin = coins[_coin];
