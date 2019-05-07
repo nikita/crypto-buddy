@@ -195,7 +195,7 @@ client.on("message", async message => {
   }
 
   if (command === "alerts") {
-    if (alerts) {
+    if (!alerts === undefined || !alerts.length === 0) {
       await message.channel.send(`Current Alerts: ${alerts}`);
     } else {
       await message.channel.send("No current alerts set.");
