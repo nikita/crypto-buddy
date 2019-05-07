@@ -7,7 +7,7 @@
     "start": "node ./index.js",
     "dev": "nodemon ./index.js"
   },
-  "author": "Unverified",
+  "author": "никита",
   "license": "MIT",
   "dependencies": {
     "discord.js": "^11.4.2",
