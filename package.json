@@ -1,5 +1,5 @@
 {
-  "name": "crypto-price-tracker",
+  "name": "crypto-buddy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon ./index.js"
   },
   "author": "Unverified",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "discord.js": "^11.4.2",
     "dotenv": "^8.0.0",
