@@ -1,0 +1,21 @@
+{
+  "name": "CryptoBuddy",
+  "description": "Alerting system for cryptocurrencies.",
+  "repository": "https://github.com/nikita/cryptobuddy",
+  "logo": "https://avatars1.githubusercontent.com/u/46332932?s=200&v=4",
+  "keywords": ["discord", "bots"],
+  "env": {
+    "DISCORD_BOT_PREFIX": {
+      "description": "The prefix you're wishing to use to communicate with your Discord Bot."
+    },
+    "DISCORD_BOT_TOKEN": {
+      "description": "Existing Discord Developers Bot Token that is being used for your server."
+    },
+    "DISCORD_BOT_CHANNEL_ID": {
+      "description": "ID pertaining to the Discord channel you're wishing to use."
+    },
+    "DISCORD_BOT_INTERVAL": {
+      "description": "The time in seconds the Discord Bot will check cryptocurrency prices."
+    }
+  }
+}
