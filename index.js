@@ -197,7 +197,7 @@ client.on("message", async message => {
   }
 
   if (command === "alerts") {
-    if (!alerts == undefined || !alerts.length == 0) {
+    if (Array.isArray(alerts) || alerts.length) {
       await message.channel.send(`Current Alerts: ${JSON.stringify(alerts)}`);
     } else {
       await message.channel.send("No current alerts set.");
