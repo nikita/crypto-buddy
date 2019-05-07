@@ -15,6 +15,8 @@ const {
 const symbols = ["XBTUSD", "ETHUSD"];
 var alerts = [];
 
+// Rate limit of 300 requests per 5 minutes if logged in.
+// Rate limit of 150 requests per 5 minutes if not logged in.
 const BitMexApi =
   "https://www.bitmex.com/api/v1/trade/bucketed?binSize=1m&partial=true&count=100&reverse=true";
 
@@ -195,8 +197,8 @@ client.on("message", async message => {
   }
 
   if (command === "alerts") {
-    if (!alerts === undefined || !alerts.length === 0) {
-      await message.channel.send(`Current Alerts: ${alerts}`);
+    if (!alerts == undefined || !alerts.length == 0) {
+      await message.channel.send(`Current Alerts: ${JSON.stringify(alerts)}`);
     } else {
       await message.channel.send("No current alerts set.");
     }
