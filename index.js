@@ -5,10 +5,10 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 const {
-  DISCORD_TOKEN,
-  DISCORD_CHANNEL_ID,
-  BOT_PREFIX,
-  BOT_INTERVAL,
+  DISCORD_BOT_TOKEN,
+  DISCORD_BOT_CHANNEL_ID,
+  DISCORD_BOT_PREFIX,
+  DISCORD_BOT_INTERVAL,
   NODE_ENV
 } = process.env;
 
@@ -81,7 +81,7 @@ const alertUser = (coin, alert) => {
     /*
       .addField("Inline Field", "They can also be inline.", true);
     */
-    client.channels.get(DISCORD_CHANNEL_ID).send(embed);
+    client.channels.get(DISCORD_BOT_CHANNEL_ID).send(embed);
     var index = alerts.indexOf(alert);
     if (index !== -1) alerts.splice(index, 1);
   } catch {
@@ -122,7 +122,7 @@ client.on("ready", () => {
 
   // tick once on startup
   checkAlerts();
-  setInterval(checkAlerts, BOT_INTERVAL * 1000);
+  setInterval(checkAlerts, DISCORD_BOT_INTERVAL * 1000);
 });
 
 client.on("guildCreate", guild => {
@@ -148,14 +148,14 @@ client.on("message", async message => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
-  if (message.content.indexOf(BOT_PREFIX) !== 0) return;
+  if (message.content.indexOf(DISCORD_BOT_PREFIX) !== 0) return;
 
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
   // command = say
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content
-    .slice(BOT_PREFIX.length)
+    .slice(DISCORD_BOT_PREFIX.length)
     .trim()
     .split(/ +/g);
   const command = args.shift().toLowerCase();
@@ -195,4 +195,4 @@ client.on("message", async message => {
   }
 });
 
-client.login(DISCORD_TOKEN);
+client.login(DISCORD_BOT_TOKEN);
